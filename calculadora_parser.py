@@ -24,35 +24,15 @@ def p_expressao_divisao(p):
     else:
         print("Divisao por zero nao suportada.\n")
 
-# Definicoes basicas do que pode ser uma expressao:
-# uma operacao elementar entre dois numeros ou
-# um numero, apenas
+# Definicao basica de uma expressao: um termo
 
 def p_expressao_num(p):
     'expressao : termo'
     p[0] = p[1]
 
-def p_expressao_defsoma(p):
-    'expressao : termo termo MAIS'
-    p[0] = p[1] + p[2]
-
-def p_expressao_defsub(p):
-    'expressao : termo termo MENOS'
-    p[0] = p[1] - p[2]
-
-def p_expressao_defmulti(p):
-    'expressao : termo termo MULTI'
-    p[0] = p[1] * p[2]
-
-def p_expressao_defdiv(p):
-    'expressao : termo termo DIV'
-    if p[2] is 0:
-        print("Divisao nao definida para divisor 0.")
-    else:
-        p[0] = p[1] / p[2]
-
 # O "atomo" de cada expressao: os numeros, que
 # sao nomeados como "termo" no parser
+
 def p_termo_num(p):
     'termo : NUM'
     p[0] = p[1]
